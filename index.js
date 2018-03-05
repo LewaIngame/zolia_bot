@@ -152,25 +152,27 @@ bot.on("ready", () => {
         var servers = bot.guilds.array().map(g => g.name).join(',');
     })
     var messages = [];
-bot.on('message', message => {
-   music.setVoiceChannel(message.member.voiceChannel);
-    var array_msg = message.content.split(' ');
-            messages.push(message);
-            switch (array_msg[0]) {
-        case ("zplay") :
-            console.log("Play");
-            message.delete(message.author);
-            if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
-            if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
-            else music.voice();
-            }
-            break;
+
+  bot.on('message', message => {
+    music.setVoiceChannel(message.member.voiceChannel);
+       var array_msg = message.content.split(' ');
+              messages.push(message);
+              switch (array_msg[0]) {
+            case ("zplay") :
+                console.log("Play");
+                message.delete(message.author);
+                if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
+                if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
+               else music.voice();
+                }
+                break;
             case ("zpause") :
                 console.log("Pause");
                 message.delete(message.author);
                 if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
                 if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
                 music.pause();
+                }
                 break;
             case ("zresume") :
                 console.log("Resume");
@@ -178,6 +180,7 @@ bot.on('message', message => {
                 if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
                 if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
                 music.resume();
+                }
                 break;
             case ("zstop") :
                 console.log("Stop");
@@ -186,6 +189,7 @@ bot.on('message', message => {
                 if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
                 else music.stop();
                 message.reply("La queue à été vidé !");
+                }
                 break;
             case ("zadd") :
                 console.log("Add");
@@ -209,6 +213,7 @@ bot.on('message', message => {
                 link = link.join(' ');
                 console.log(link);
                 music.setTabEnd(link);
+                }
                 break;
             case ("zvolume") :
                 console.log("Volume");
@@ -218,6 +223,7 @@ bot.on('message', message => {
                 link = link.join(' ');
                 music.volume(link/100);
                 message.reply("le volume et maintenant à :" + link);
+                 }
                 break;
             }
         
