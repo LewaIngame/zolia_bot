@@ -152,18 +152,19 @@ bot.on("ready", () => {
         var servers = bot.guilds.array().map(g => g.name).join(',');
     })
     var messages = [];
-    bot.on('message', message => {
-       music.setVoiceChannel(message.member.voiceChannel);
-        var array_msg = message.content.split(' ');
-                messages.push(message);
-                switch (array_msg[0]) {
-            case ("zplay") :
-                console.log("Play");
-                message.delete(message.author);
-                if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
-                if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
-                else music.voice();
-                break;
+bot.on('message', message => {
+   music.setVoiceChannel(message.member.voiceChannel);
+    var array_msg = message.content.split(' ');
+            messages.push(message);
+            switch (array_msg[0]) {
+        case ("zplay") :
+            console.log("Play");
+            message.delete(message.author);
+            if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
+            if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
+            else music.voice();
+            }
+            break;
             case ("zpause") :
                 console.log("Pause");
                 message.delete(message.author);
