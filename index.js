@@ -164,7 +164,6 @@ bot.on("ready", () => {
                 if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
                 if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
                else music.voice();
-                }
                 break;
             case ("zpause") :
                 console.log("Pause");
@@ -172,7 +171,6 @@ bot.on("ready", () => {
                 if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
                 if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
                 music.pause();
-                }
                 break;
             case ("zresume") :
                 console.log("Resume");
@@ -180,7 +178,6 @@ bot.on("ready", () => {
                 if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
                 if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
                 music.resume();
-                }
                 break;
             case ("zstop") :
                 console.log("Stop");
@@ -189,7 +186,6 @@ bot.on("ready", () => {
                 if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
                 else music.stop();
                 message.reply("La queue à été vidé !");
-                }
                 break;
             case ("zadd") :
                 console.log("Add");
@@ -213,7 +209,6 @@ bot.on("ready", () => {
                 link = link.join(' ');
                 console.log(link);
                 music.setTabEnd(link);
-                }
                 break;
             case ("zvolume") :
                 console.log("Volume");
@@ -223,7 +218,6 @@ bot.on("ready", () => {
                 link = link.join(' ');
                 music.volume(link/100);
                 message.reply("le volume et maintenant à :" + link);
-                 }
                 break;
             }
         
@@ -248,3 +242,4 @@ bot.on("ready", () => {
     });
     
     app.listen(AuthDetails.port);
+
