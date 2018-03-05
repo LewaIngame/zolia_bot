@@ -162,7 +162,6 @@ bot.on("ready", () => {
                 console.log("Play");
                 if (!music.getVoiceChannel()) return message.reply("Veuillez vous connectez en vocal !");
                 if (music.getTab(0) == null) return message.reply('Aucune musique, merci d\' en ajouté.');
-                message.delete(message.author);
                else music.voice();
                 break;
             case ("zpause") :
